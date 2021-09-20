@@ -1,0 +1,4 @@
+function [p]=trace(k,R,c)
+    n = [-100:1:100];
+    p = -(k/2)*(-i).^(n).*besselj(n,k*R)./besselh(n,k*R).*(besselh(n+1,k*a)
+end

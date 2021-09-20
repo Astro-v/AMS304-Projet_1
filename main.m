@@ -6,6 +6,6 @@
 
 %% 1. Générer un maillage du bord du disque
 
-[x,y,T] = mesh(1,20,1);
-plot(x,y)
+[b,c] = mesh(1,20,1);
+% plot(x,y)
 
