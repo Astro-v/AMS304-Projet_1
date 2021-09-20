@@ -25,3 +25,8 @@ r = sqrt(c(1,:).^2+c(2,:).^2);
 plot(mod(real(-i.*log((c(1,:)+i.*c(2,:))./r)),2*pi),real(p))
 figure()
 plot(mod(real(-i.*log((c(1,:)+i.*c(2,:))./r)),2*pi),imag(p))
+
+%% 3. Interpolation cst par elt
+% sur feuille
+
+%% 4. Quadrature de Gauss-Legendre
