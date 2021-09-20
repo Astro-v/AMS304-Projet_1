@@ -5,9 +5,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% 0. Initialisation
-k = 2*pi;
-R = 1;
-dens = 20;
+global k;k = 2*pi;
+global R;R = 1;
+global dens;dens = 20;
 
 
 %% 1. Générer un maillage du bord du disque
@@ -22,11 +22,15 @@ for m = [1:1:size(c,2)]
 end
 
 r = sqrt(c(1,:).^2+c(2,:).^2);
-plot(mod(real(-i.*log((c(1,:)+i.*c(2,:))./r)),2*pi),real(p))
-figure()
-plot(mod(real(-i.*log((c(1,:)+i.*c(2,:))./r)),2*pi),imag(p))
+% plot(mod(real(-i.*log((c(1,:)+i.*c(2,:))./r)),2*pi),real(p))
+% figure()
+% plot(mod(real(-i.*log((c(1,:)+i.*c(2,:))./r)),2*pi),imag(p))
 
 %% 3. Interpolation cst par elt
 % sur feuille
 
 %% 4. Quadrature de Gauss-Legendre
+I = quadrature(2,0,2,@f);
+
+%% 5. Représentation intégrale
+uplus=repInt(p,b);uplus
