@@ -11,4 +11,8 @@ function [x,y,T]=mesh(R,dens,k)
     x = x(1:length(x)-1);
     y = y(1:length(y)-1);
     T = [[[1:1:length(x)-1];[2:1:length(y)]] [length(x);1]];
+    
+    a = [x; y];
+    b = [x[2:N]; y[2:N]];
+    b(:,N)=[x(1),y(1)
 end
