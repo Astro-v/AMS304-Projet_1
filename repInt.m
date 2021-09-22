@@ -1,9 +1,13 @@
-function [u]=repInt(p,s)
+function [u]=repInt(p,s,x)
+    % p trace
+    % s sommet
+
     global k;
     hank = [];
+    ordre = 2; % Orde de la méthode de quadrature
     for i=[1:1:size(s,2)-1]
-        hank = [hank quadrature(2,0,sqrt((s(1,i+1)-s(1,i))^2 + (s(2,i+1)-s(2,i))^2),@f)];
+        hank = [hank quadrature(ordre,s(:,i),s(:,i+1),@f,x)];
     end
-    hank = [hank quadrature(2,0,sqrt((s(1,1)-s(1,size(s,2)))^2 + (s(2,1)-s(2,size(s,2)))^2),@f)];
+    hank = [hank quadrature(ordre,s(:,size(s,2)),s(:,1),@f,x)];
     u = (1i/4)*(p*hank.');
 end

@@ -30,9 +30,17 @@ r = sqrt(c(1,:).^2+c(2,:).^2);
 % sur feuille
 
 %% 4. Quadrature de Gauss-Legendre
+I = quadrature(2,0,2,@f);
 
 %% 5. Représentation intégrale
+rayonV = [1:0.5:2];
+thetaV = [0:0.1:2*pi];
+Z = zeros(size(rayonV,2),size(thetaV,2));
+for ind1 = 1:1:size(rayonV,2)
+    for ind2 = 1:1:size(thetaV,2)
+       Z(ind1,ind2) = repInt(p,s,[rayonV(ind1)*cos]);
+   end
+end
 
 %% 6. Validation
 
-norm(repInt(p,s,[3,2])-solA(3,2))
