@@ -22,7 +22,7 @@ for m = [1:1:size(c,2)]
 end
 theta = -i*log((c(1,:)+i*c(2,:))/R);
 figure()
-plot(mod(real(-i.*log((c(1,:)+i.*c(2,:))./R)),2*pi),real(p),mod(real(-i.*log((c(1,:)+i.*c(2,:))./R)),2*pi),imag(p))
+plot(real(-i.*log((c(1,:)+i.*c(2,:))./R)),real(p),real(-i.*log((c(1,:)+i.*c(2,:))./R)),imag(p))
 xlabel('\theta')
 ylabel('p(r,\theta)')
 
@@ -34,7 +34,7 @@ ylabel('p(r,\theta)')
 %% 5. Représentation intégrale
 
 %% 6. Validation
-x = [1:0.01:5];
+x = [1:0.05:10];
 sol=[];
 for m = [1:1:size(x,2)]
     sol = [sol solA(x(m),0)];
@@ -46,6 +46,6 @@ for m = [1:1:size(x,2)]
 end
 
 figure()
-plot(x,sol);
-xlabel('\theta')
-ylabel('Sol Ann')
+plot(x,sol,x,rep);
+xlabel('x')
+ylabel('Solution')
