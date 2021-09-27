@@ -21,10 +21,10 @@ for m = [1:1:size(c,2)]
     p = [p trace(k,R,c(1,m),c(2,m))];
 end
 
-r = sqrt(c(1,:).^2+c(2,:).^2);
-% plot(mod(real(-i.*log((c(1,:)+i.*c(2,:))./r)),2*pi),real(p))
-% figure()
-% plot(mod(real(-i.*log((c(1,:)+i.*c(2,:))./r)),2*pi),imag(p))
+figure()
+plot(mod(real(-i.*log((c(1,:)+i.*c(2,:))./r)),2*pi),real(p),mod(real(-i.*log((c(1,:)+i.*c(2,:))./r)),2*pi),imag(p))
+xlabel('\theta')
+ylabel('p(r,\theta)')
 
 %% 3. Interpolation cst par elt
 % sur feuille
