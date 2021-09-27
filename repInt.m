@@ -4,7 +4,7 @@ function [u]=repInt(p,s,x)
 
     global k;
     hank = [];
-    ordre = 2; % Orde de la méthode de quadrature
+    ordre = 3; % Orde de la méthode de quadrature
     for i=[1:1:size(s,2)-1]
         hank = [hank quadrature(ordre,s(:,i),s(:,i+1),@f,x)];
     end

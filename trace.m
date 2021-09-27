@@ -6,6 +6,6 @@ function [p]=trace(k,R,x,y)
     %p = conj(p);
     p = 0;
     for n = [-20:1:20]
-        p = p - (k/2)*(-i)^(n)*(besselj(n,k*R)/besselh(n,k*R))*(besselh(n-1,k*r)-besselh(n+1,k*r))*exp(i*theta*n)'+i*k*cos(theta)*exp(-i*k*r*cos(theta));
+        p = p + (k/2)*(-i)^(n)*(besselj(n,k*R)/besselh(n,k*R))*(besselh(n-1,k*r)-besselh(n+1,k*r))*exp(i*theta*n)'+i*k*cos(theta)*exp(-i*k*r*cos(theta));
     end
 end

@@ -34,18 +34,9 @@ ylabel('p(r,\theta)')
 %% 5. Représentation intégrale
 
 %% 6. Validation
-x = [1:0.01:5];
-sol=[];
-for m = [1:1:size(x,2)]
-    sol = [sol solA(x(m),0)];
-end
 
-rep=[];
-for m = [1:1:size(x,2)]
-    rep = [rep repInt(p,s,[x(m),0])];
-end
-
+theta = -i*log((c(1,:)+i*c(2,:))/R);
 figure()
-plot(x,sol);
+plot(mod(real(-i.*log((c(1,:)+i.*c(2,:))./R)),2*pi),s)
 xlabel('\theta')
 ylabel('Sol Ann')
