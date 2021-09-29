@@ -5,7 +5,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% 0. Initialisation
-global k;k = 2*pi;
+global k;k = pi;
 global R;R = 1;
 global dens;dens = 20;
 
@@ -34,7 +34,7 @@ theta = -i*log((c(1,:)+i*c(2,:))/R);
 %% 5. Représentation intégrale
 
 %% 6. Validation
-x = [1:0.05:5];
+x = [1:0.01:5];
 sol=[];
 for m = [1:1:size(x,2)]
     sol = [sol solA(x(m),0)];
@@ -46,11 +46,12 @@ for m = [1:1:size(x,2)]
 end
 
 figure()
-plot(x,sol,x,rep);
+plot(x,real(sol),x,real(rep),x,imag(sol),x,imag(rep));
+legend({'Partie réel de la solution Analytique','Partie réel de la représentation intégrale','Partie imaginaire de la solution Analytique','Partie réel de la représentation intégrale'})
 xlabel('x')
 ylabel('Solution')
 
-y = [1:0.05:5];
+y = [1:0.01:5];
 sol=[];
 for m = [1:1:size(y,2)]
     sol = [sol solA(0,y(m))];
@@ -62,11 +63,12 @@ for m = [1:1:size(y,2)]
 end
 
 figure()
-plot(y,sol,y,rep);
+plot(y,real(sol),y,real(rep),y,imag(sol),y,imag(rep));
+legend({'Partie réel de la solution Analytique','Partie réel de la représentation intégrale','Partie imaginaire de la solution Analytique','Partie réel de la représentation intégrale'})
 xlabel('y')
 ylabel('Solution')
 
-z = sqrt(2)/2 *[1:0.05:5];
+z = sqrt(2)/2 *[1:0.01:5];
 sol=[];
 for m = [1:1:size(z,2)]
     sol = [sol solA(z(m),z(m))];
@@ -78,15 +80,26 @@ for m = [1:1:size(z,2)]
 end
 
 figure()
-plot(2/sqrt(2)*z,sol,2/sqrt(2)*z,rep);
+plot(2/sqrt(2)*z,real(sol),2/sqrt(2)*z,real(rep),2/sqrt(2)*z,imag(sol),2/sqrt(2)*z,imag(rep));
+legend({'Partie réel de la solution Analytique','Partie réel de la représentation intégrale','Partie imaginaire de la solution Analytique','Partie réel de la représentation intégrale'})
 xlabel('z')
 ylabel('Solution')
 
-x = [1:0.05:5];
-y = [1:0.05:5];
-sol=[];
-for m = [1:1:size(x,2)]
-    for l = [1:1:size(z,2)]
-        sol = [sol solA(z(m),z(m))];
-end
-
+% x = [-5:0.02:5];
+% y = [-5:0.02:5];
+% sol=[];
+% for m = [1:1:size(x,2)]
+%     solb = [];
+%     for l = [1:1:size(y,2)]
+%         if (sqrt(x(m)^2+y(l)^2)>=R)
+%             g = repInt(p,s,[x(m),y(l)]);
+%             solb = [solb (real(g)+1)/2];
+%         else
+%             solb = [solb 0];
+%         end
+%     end
+%     sol = [sol;solb];
+% end
+% 
+% figure()
+% imshow(sol)
