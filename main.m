@@ -34,40 +34,40 @@ theta = -i*log((c(1,:)+i*c(2,:))/R);
 %% 5. Représentation intégrale
 
 %% 6. Validation
-% x = [1:0.01:5];
-% sol=[];
-% for m = [1:1:size(x,2)]
-%     sol = [sol solA(x(m),0)];
-% end
-% 
-% rep=[];
-% for m = [1:1:size(x,2)]
-%     rep = [rep repInt(p,s,[x(m),0])];
-% end
-% 
-% figure()
-% plot(x,real(sol),x,real(rep),x,imag(sol),x,imag(rep));
-% legend({'Partie réel de la solution Analytique','Partie réel de la représentation intégrale','Partie imaginaire de la solution Analytique','Partie réel de la représentation intégrale'})
-% xlabel('x')
-% ylabel('Solution')
-% 
-% y = [1:0.01:5];
-% sol=[];
-% for m = [1:1:size(y,2)]
-%     sol = [sol solA(0,y(m))];
-% end
-% 
-% rep=[];
-% for m = [1:1:size(y,2)]
-%     rep = [rep repInt(p,s,[0,y(m)])];
-% end
-% 
-% figure()
-% plot(y,real(sol),y,real(rep),y,imag(sol),y,imag(rep));
-% legend({'Partie réel de la solution Analytique','Partie réel de la représentation intégrale','Partie imaginaire de la solution Analytique','Partie réel de la représentation intégrale'})
-% xlabel('y')
-% ylabel('Solution')
-% 
+x = [1:0.01:5];
+sol=[];
+for m = [1:1:size(x,2)]
+    sol = [sol solA(x(m),0)];
+end
+
+rep=[];
+for m = [1:1:size(x,2)]
+    rep = [rep repInt(p,s,[x(m),0])];
+end
+
+figure()
+plot(x,real(sol),x,real(rep),x,imag(sol),x,imag(rep));
+legend({'Partie réel de la solution Analytique','Partie réel de la représentation intégrale','Partie imaginaire de la solution Analytique','Partie réel de la représentation intégrale'})
+xlabel('x')
+ylabel('Solution')
+
+y = [1:0.01:5];
+sol=[];
+for m = [1:1:size(y,2)]
+    sol = [sol solA(0,y(m))];
+end
+
+rep=[];
+for m = [1:1:size(y,2)]
+    rep = [rep repInt(p,s,[0,y(m)])];
+end
+
+figure()
+plot(y,real(sol),y,real(rep),y,imag(sol),y,imag(rep));
+legend({'Partie réel de la solution Analytique','Partie réel de la représentation intégrale','Partie imaginaire de la solution Analytique','Partie réel de la représentation intégrale'})
+xlabel('y')
+ylabel('Solution')
+
 z = sqrt(2)/2 *[1:0.01:5];
 sol=[];
 for m = [1:1:size(z,2)]
