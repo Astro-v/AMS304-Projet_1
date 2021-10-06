@@ -10,6 +10,7 @@ global R;R = 1;
 global dens;dens = 20;
 
 
+
 %% 1. Générer un maillage du bord du disque
 
 [s,c] = mesh(R,dens,k);
@@ -21,6 +22,7 @@ for m = [1:1:size(c,2)]
     p = [p trace(k,R,c(1,m),c(2,m))];
 end
 theta = -i*log((c(1,:)+i*c(2,:))/R);
+
 %figure()
 %plot(real(-i.*log((c(1,:)+i.*c(2,:))./R)),real(p),real(-i.*log((c(1,:)+i.*c(2,:))./R)),imag(p))
 %xlabel('\theta')
@@ -34,6 +36,7 @@ theta = -i*log((c(1,:)+i*c(2,:))/R);
 %% 5. Représentation intégrale
 
 %% 6. Validation
+
 x = [1:0.01:5];
 sol=[];
 for m = [1:1:size(x,2)]
@@ -85,6 +88,7 @@ legend({'Partie réel de la solution Analytique','Partie réel de la représentatio
 xlabel('z')
 ylabel('Solution')
 
+%% DISPLAY SOLUTION
 % x = [-5:0.02:5];
 % y = [-5:0.02:5];
 % sol=[];
@@ -104,3 +108,16 @@ ylabel('Solution')
 % 
 % figure()
 % imshow(sol)
+
+
+%% TESTING TIME 
+% dens = 4000
+% tic
+% [s,c] = mesh(R,dens,k);
+% p=[];
+%  for m = [1:1:size(c,2)]
+%     p = [p trace(k,R,c(1,m),c(2,m))];
+% end
+% repInt(p,s,[2,2]);
+% temps = toc
+
